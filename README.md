@@ -117,6 +117,7 @@ namespace Microsoft.BotFramework.Composer.CustomAction
 }
 ```
 
+## Adaptive Registration
 ```csharp
 using AdaptiveExpressions.Converters;
 using Microsoft.Bot.Builder;
@@ -144,3 +145,12 @@ namespace Microsoft.BotFramework.Composer.CustomAction
     }
 }
 ```
+
+# Multiply Example
+![Multiply example](/Media/CustomActionMultiplyExample.png)
+
+# Decrypt property example
+![Decrypt Property example](/Media/CustomActionDecryptPropertyExample.png)
+
+# WebChat results of Encrypt/Decrypt property:
+![WebChat encrypt with decrypt example](/Media/EncryptPropertyWebchatExample.png)
