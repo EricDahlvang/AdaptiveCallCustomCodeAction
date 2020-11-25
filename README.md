@@ -144,3 +144,6 @@ namespace Microsoft.BotFramework.Composer.CustomAction
     }
 }
 ```
+![Multiply example](/Media/CustomActionMultiplyExample.png)
+![Decrypt Property example](/Media/CustomActionDecryptPropertyExample.png)
+![WebChat encrypt with decrypt example](/Media/EncryptPropertyWebchatExample.png)
