@@ -1,0 +1,25 @@
+{
+  "$schema": "https://raw.githubusercontent.com/microsoft/botframework-sdk/master/schemas/component/component.schema",
+  "$role": "implements(Microsoft.IDialog)",
+  "title": "Call Custom Code Action",
+  "description": "This dialog will dynamically call the defined custom code action.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "methodName": {
+      "$ref": "schema:#/definitions/stringExpression",
+      "title": "Method Name",
+      "description": "Method name of tthe code action to call."
+    },
+    "classTypeName": {
+      "$ref": "schema:#/definitions/stringExpression",
+      "title": "Class type name",
+      "description": "Class which should be loaded in order to call the Method. Default: 'Microsoft.BotFramework.Composer.CustomAction.CustomCodeActionMethods'"
+    },
+    "customActionOptions": {
+      "$ref": "schema:#/definitions/objectExpression",
+      "title": "Custom action options",
+      "description": "One or more options that are passed to the custom action as options args."
+    }
+  }
+}
