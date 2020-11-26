@@ -13,6 +13,10 @@ namespace Microsoft.BotFramework.Composer.CustomAction
 
         public async Task<DialogTurnResult> EncryptProperty(DialogContext dc, System.Object options)
         {
+            
+            // NOTE: This could read the propertyName to encrypt from the options.
+            
+            
             var propertyName = dc.State.GetValue<string>(DialogPropertyName, () => string.Empty);
             var propertyValue = dc.State.GetValue<string>(propertyName, () => string.Empty);
 
