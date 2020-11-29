@@ -60,7 +60,7 @@ namespace Microsoft.BotFramework.Composer.CustomAction
 
             string methodName = MethodName.GetValue(dc.State);
             string classTypeName = ClassTypeName.GetValue(dc.State);
-            var codeActionOptions = CustomActionOptions.GetValue(dc.State);
+            var codeActionOptions = CustomActionOptions?.GetValue(dc.State);
 
             // Using the current assembly for now
             var instance = Assembly.GetExecutingAssembly().CreateInstance(classTypeName);
@@ -68,8 +68,8 @@ namespace Microsoft.BotFramework.Composer.CustomAction
             var resultTask = (Task)methodInfo.Invoke(instance, new object[] { dc, codeActionOptions });
             await resultTask.ConfigureAwait(false);
             var resultProperty = resultTask.GetType().GetProperty("Result");
-            return resultProperty.GetValue(resultTask) as DialogTurnResult;
-
+            var result = resultProperty.GetValue(resultTask) as DialogTurnResult;
+            return result;
             
             // Call a static method:
             //Type customType = Assembly.GetExecutingAssembly().GetType(classTypeName);
