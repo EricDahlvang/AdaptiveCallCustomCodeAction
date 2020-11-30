@@ -57,4 +57,22 @@ namespace Microsoft.BotFramework.Composer.CustomAction
             var values = GetValues(dc, options);
             return await dc.EndDialogAsync(new { value = values.Item1 - values.Item2 }).ConfigureAwait(false);
         }
+
+        public async Task<DialogTurnResult> Evaluate(DialogContext dc, object options)
+        {
+            string pathToExpression = DialogVariablePathName1;
+            var asJobject = options as JObject;
+            if (asJobject != null && asJobject.HasValues)
+            {
+                pathToExpression = asJobject.Children().First().Value<string>();
+            }
+            
+            // ((10*5)/2)
+            var expression = dc.State.GetValue<string>(pathToExpression, () => string.Empty);
+            var parsed = Expression.Parse(expression);
+            var evaluated = parsed.TryEvaluate<float>(null);
+
+            return await dc.EndDialogAsync(new { value = evaluated.value }).ConfigureAwait(false);
+        }
+    }
 }
