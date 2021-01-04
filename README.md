@@ -1,6 +1,8 @@
 # Adaptive CallCustomCodeAction
 Demonstrates a custom code action which calls different methods based on ClassTypeName and MethodName
 
+Nuget:
+https://www.nuget.org/packages/Preview.Bot.Component.CustomAction
 
 ```csharp
 using System.Reflection;
